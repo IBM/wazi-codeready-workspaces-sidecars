@@ -1,15 +1,7 @@
-###############################################################################
-# Licensed Materials - Property of IBM
-# (c) Copyright IBM Corporation 2018, 2020. All Rights Reserved.
-#
-# Note to U.S. Government Users Restricted Rights:
-# Use, duplication or disclosure restricted by GSA ADP Schedule
-# Contract with IBM Corp.
-###############################################################################
-
 #!/bin/sh
 #
 # Copyright (c) 2019 Red Hat, Inc.
+# Copyright IBM Corporation 2020
 # This program and the accompanying materials are made
 # available under the terms of the Eclipse Public License 2.0
 # which is available at https://www.eclipse.org/legal/epl-2.0/
@@ -18,6 +10,7 @@
 #
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
+#   IBM Corporation - implementation
 #
 set_maven_mirror() {
     local m2="$HOME"/.m2
