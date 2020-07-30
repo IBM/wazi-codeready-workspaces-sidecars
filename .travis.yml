@@ -11,6 +11,8 @@ env:
   - REPOSITORY="docker.io"
   - FOLDER_PATH="/ibmcom/"
   - IMAGE_NAME="wazi-code-codeready"
-before_install: env
+before_install: 
+  - curl https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/wazi/wazi-development-client-1.0.0-20200624.zip | jar xv
+  - ls -la
 install: docker build -t ${REPOSITORY}${FOLDER_PATH}${IMAGE_NAME}:latest .
 script: echo "Success!"
