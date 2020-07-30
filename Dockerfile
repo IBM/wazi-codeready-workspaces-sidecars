@@ -53,8 +53,8 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH=${PATH}:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin
 # Install Zowe CLI
 RUN npm install -g @zowe/cli@zowe-v1-lts --ignore-scripts
-# download rse api for zowe cli plugin
-RUN curl http://rtpgsa.ibm.com/projects/w/wazi/maintenance/releases/development-client-1.0.0/ibm-rse-api-for-zowe-cli.tgz -o ${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz
+# Copy RSE API for Zowe CLI Plugin
+COPY ibm-rse-api-for-zowe-cli.tgz ${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz
 # install rse api for zowe cli plugin
 RUN npm install -g "${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz" && \
     rm -rf ${HOME}/rse-rest

@@ -12,7 +12,7 @@ env:
   - FOLDER_PATH="/ibmcom/"
   - IMAGE_NAME="wazi-code-codeready"
 before_install: 
-  - curl https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/wazi/wazi-development-client-1.0.0-20200624.zip | jar xv
-  - ls -la
+  - curl https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/wazi/wazi-development-client-1.0.0-20200624.zip | jar xv ibm-rse-api-for-zowe-cli-1.0.0.tgz
+  - mv ibm-rse-api-for-zowe-cli-1.0.0.tgz ibm-rse-api-for-zowe-cli.tgz
 install: docker build -t ${REPOSITORY}${FOLDER_PATH}${IMAGE_NAME}:latest .
 script: echo "Success!"
