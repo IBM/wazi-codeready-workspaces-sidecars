@@ -16,3 +16,5 @@ before_install:
   - mv ibm-rse-api-for-zowe-cli-1.0.0.tgz ibm-rse-api-for-zowe-cli.tgz
 install: docker build -t ${REPOSITORY}${FOLDER_PATH}${IMAGE_NAME}:latest .
 script: echo "Success!"
+notifications:
+  slack: ibm-systems-z:kiD2FZtJUJtUSp57dwHWwNX1
