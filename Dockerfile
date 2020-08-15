@@ -38,6 +38,7 @@ RUN rm -rf /etc/mysql /etc/my.cnf* && \
     useradd -u 1000 -G wheel,root -d /home/wazi --shell /bin/bash -m wazi && \
     yum remove -y kernel-headers && \
     yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless curl bzip2 python36 && \
+    yum update -y && \
     yum update -y nodejs npm python3-six pango libnghttp2 && \
     yum clean all && rm -rf /var/cache/yum && \
     mkdir -p /projects && \
