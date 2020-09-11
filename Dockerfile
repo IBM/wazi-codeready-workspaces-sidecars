@@ -19,7 +19,7 @@ ENV PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces"\
     RELEASE="1" \
     SUMMARY="IBM Wazi Developer for Workspaces" \
     DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
-    PRODTAG="ibm-wazi-code-codeready"
+    PRODTAG="wazi-code-codeready"
     
 LABEL name="$PRODUCT" \
       vendor="$COMPANY" \
