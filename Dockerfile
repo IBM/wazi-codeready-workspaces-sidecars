@@ -13,8 +13,8 @@
 # get nodejs12 UBI 8 image from redhat registry
 FROM registry.access.redhat.com/ubi8/nodejs-12
 # Summary of the container
-ENV SUMMARY="IBM Wazi for CodeReady Workspaces Development Client - Container" \
-    DESCRIPTION="IBM Wazi for CodeReady Workspaces Development Client - IBM Wazi Code CodeReady" \
+ENV SUMMARY="IBM Wazi Developer for Workspaces" \
+    DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
     PRODNAME="wazi-code-codeready" \
     COMPNAME="ibm"
 LABEL name="$COMPNAME-$PRODNAME" \
