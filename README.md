@@ -13,7 +13,7 @@ IBM Wazi Developer for Red Hat CodeReady Workspaces (IBM Wazi Developer for Work
 A Docker image that packages all the enviroment dependencies for a stack and is necessary when a workspace is started.
 This sidecar provides Java, Node, Zowe, and other tools necessary to successfully run a workspace with the Wazi Developer for Workspaces stack. When a user creates and starts a workspace using the Wazi Developer for Workspaces stack, then a Wazi CodeReady Workspaces Sidecar container provides a user runtime for the stack.
   
-## Customization
+## Documentation
   
 Documentation can be found here for [IBM Wazi Developer for Workspaces](https://www.ibm.com/support/knowledgecenter/SSCH39)  
   
