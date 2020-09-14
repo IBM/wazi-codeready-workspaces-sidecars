@@ -20,7 +20,7 @@ ENV PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces"\
     SUMMARY="IBM Wazi Developer for Workspaces" \
     DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
     PRODTAG="wazi-code-codeready"
-    
+
 LABEL name="$PRODUCT" \
       vendor="$COMPANY" \
       version="$VERSION" \
@@ -32,19 +32,19 @@ LABEL name="$PRODUCT" \
       io.openshift.tags="$PRODTAG,$COMPANY" \
       com.redhat.component="$PRODTAG" \
       io.openshift.expose-services=""
-      
+
 USER root
 
 # Set Environment Variable for Home Dir and Node Dir
 ENV HOME=/home/wazi \
     NODEJS_VERSION=10 \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:/usr/bin:$PATH
-    
+
 # add user, install java jdk, python, curl, bzip, apply permissions
 RUN rm -rf /etc/mysql /etc/my.cnf* && \
     useradd -u 1000 -G wheel,root -d /home/wazi --shell /bin/bash -m wazi && \
     yum remove -y kernel-headers && \
-    yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless curl bzip2 python36 && \
+    yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless curl bzip2 python36 libsecret && \
     yum update -y && \
     yum update -y nodejs npm python3-six pango libnghttp2 && \
     yum clean all && rm -rf /var/cache/yum && \
@@ -56,13 +56,14 @@ RUN rm -rf /etc/mysql /etc/my.cnf* && \
     done && \
     mkdir -p ${HOME}/rse-rest /opt/app-root/src/.npm-global/bin && \
     ln -s /usr/bin/node /usr/bin/nodejs
-    
+
 # set java environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH=${PATH}:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin
 
 # Install Zowe CLI
-RUN npm install -g @zowe/cli@zowe-v1-lts --ignore-scripts
+RUN npm install -g @zowe/cli@zowe-v1-lts --ignore-scripts && \
+    npm install -g @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts --ignore-scripts
 
 # Copy RSE API for Zowe CLI Plugin and License
 COPY ibm-rse-api-for-zowe-cli.tgz ${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz
@@ -71,14 +72,14 @@ COPY LICENSE /licenses
 # Install RSE API for Zowe CLI Plugin
 RUN npm install -g "${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz" && \
     rm -rf ${HOME}/rse-rest
-    
+
 # Apply Permissions
 RUN for f in "${HOME}" "/opt/app-root/src/.npm-global"; do \
       chgrp -R 0 ${f} && \
       chmod -R g+rwX ${f}; \
     done && \
     echo "Installed Packages" && rpm -qa | sort -V && echo "End Of Installed Packages"
-    
+
 WORKDIR ${HOME}
 
 # Add GitConfig and Profile to Zowe CLI Install

@@ -4,4 +4,5 @@ alias la='ls -al'
 PLUGIN_DIR=~/.zowe/plugins/installed/lib/node_modules/@ibm/rse-api-for-zowe-cli
 if [ ! -d "$PLUGIN_DIR" ]; then
     zowe plugins install "/opt/app-root/src/.npm-global/lib/node_modules/@ibm/rse-api-for-zowe-cli" > /dev/null 2>&1
+    zowe plugins install "/opt/app-root/src/.npm-global/lib/node_modules/@zowe/secure-credential-store-for-zowe-cli" > /dev/null 2>&1
 fi
