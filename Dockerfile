@@ -63,7 +63,7 @@ ENV PATH=${PATH}:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin
 
 # Install Zowe CLI
 RUN npm install -g @zowe/cli@zowe-v1-lts --ignore-scripts && \
-    zowe plugins install @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts
+    npm install -g @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts --ignore-scripts
 
 # Copy RSE API for Zowe CLI Plugin and License
 COPY ibm-rse-api-for-zowe-cli.tgz ${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz
