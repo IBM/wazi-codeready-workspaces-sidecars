@@ -37,7 +37,7 @@ USER root
 
 # Set Environment Variable for Home Dir and Node Dir
 ENV HOME=/home/wazi \
-    NODEJS_VERSION=10 \
+    NODEJS_VERSION=12 \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:/usr/bin:$PATH
 
 # add user, install java jdk, python, curl, bzip, apply permissions
