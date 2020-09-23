@@ -19,7 +19,10 @@ ENV PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces"\
     RELEASE="1" \
     SUMMARY="IBM Wazi Developer for Workspaces" \
     DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
-    PRODTAG="wazi-code-codeready"
+    PRODTAG="wazi-code-codeready" \
+    PRODID="9d41d2d8126f4200b62ba1acc0dffa2e" \
+    PRODMETRIC="VIRTUAL_PROCESSOR_CORE" \
+    PRODCHARGEDCONTAINERS="All"
 
 LABEL name="$PRODUCT" \
       vendor="$COMPANY" \
@@ -31,7 +34,12 @@ LABEL name="$PRODUCT" \
       io.k8s.display-name="$SUMMARY" \
       io.openshift.tags="$PRODTAG,$COMPANY" \
       com.redhat.component="$PRODTAG" \
-      io.openshift.expose-services=""
+      io.openshift.expose-services="" \
+      productID="$PRODID" \
+      productName="$PRODUCT" \
+      productMetric="$PRODMETRIC" \
+      productChargedContainers="$PRODCHARGEDCONTAINERS" \
+      productVersion="$VERSION"
 
 USER root
 
