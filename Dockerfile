@@ -70,7 +70,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH=${PATH}:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin
 
 # Install Zowe CLI
-RUN npm install -g @zowe/cli@zowe-v1-lts --ignore-scripts
+RUN npm install -g @zowe/cli@6.22.0 --ignore-scripts
 
 # TODO Installing Keytar and Secure Credentials TODO
 #RUN npm install -g keytar --ignore-scripts && \
