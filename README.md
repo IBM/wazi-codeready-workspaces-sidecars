@@ -4,10 +4,6 @@
 [![DockerHub](https://img.shields.io/badge/DockerHub-CodeReady-blue?color=3498db)](https://hub.docker.com/repository/docker/ibmcom/wazi-code-codeready)
 [![Knowledge Center](https://img.shields.io/badge/Knowledge%20Center-blue?color=1f618d)](https://www.ibm.com/support/knowledgecenter/SSCH39)
     
-# IBM&reg; Wazi Developer for Red Hat&reg; CodeReady Workspaces
-
-IBM Wazi Developer for Red Hat CodeReady Workspaces (IBM Wazi Developer for Workspaces), delivers cloud-native developer experience, enabling development and testing of IBM z/OS application components in containerized, z/OS sandbox environment on Red Hat OpenShift Container Platform running on x86 hardware, and providing capability to deploy applications into production on native z/OS running on IBM Z hardware. IBM Wazi Developer is a development environment that provides an in-browser IDE with a single-click developer workspace with the capabilities to code, edit, build, and debug.  
-  
 ## What's inside?
   
 A Docker image that packages all the enviroment dependencies for a stack and is necessary when a workspace is started.
