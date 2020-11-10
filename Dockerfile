@@ -1,5 +1,5 @@
 #
-# Copyright IBM Corporation 2020
+# Copyright IBM Corporation 2020 - 2021
 # This program and the accompanying materials are made
 # available under the terms of the Eclipse Public License 2.0
 # which is available at https://www.eclipse.org/legal/epl-2.0/
@@ -12,10 +12,18 @@
 
 FROM registry.access.redhat.com/ubi8/nodejs-12
 
-# Summary of the Container
-ENV PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces"\
+# Build Arguments
+ARG PRODUCT_VERSION=1.2.0
+
+# Environment and Label Variables
+ENV HOME=/home/wazi \
+    NODEJS_VERSION="12" \
+    PATH=/usr/lib/jvm/java-1.8.0-openjdk/jre/bin:$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:/usr/bin:$PATH \
+    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk \
+    PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces" \
     COMPANY="IBM" \
-    VERSION="1.1.0" \
+    VERSION=$PRODUCT_VERSION \
+    ZOWE_CLI_VERSION="6.26.0" \
     RELEASE="1" \
     SUMMARY="IBM Wazi Developer for Workspaces" \
     DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
@@ -43,11 +51,6 @@ LABEL name="$PRODUCT" \
 
 USER root
 
-# Set Environment Variable for Home Dir and Node Dir
-ENV HOME=/home/wazi \
-    NODEJS_VERSION=12 \
-    PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:/usr/bin:$PATH
-
 # add user, install java jdk, python, curl, bzip, apply permissions
 RUN rm -rf /etc/mysql /etc/my.cnf* && \
     useradd -u 1000 -G wheel,root -d /home/wazi --shell /bin/bash -m wazi && \
@@ -65,12 +68,8 @@ RUN rm -rf /etc/mysql /etc/my.cnf* && \
     mkdir -p ${HOME}/rse-rest /opt/app-root/src/.npm-global/bin && \
     ln -s /usr/bin/node /usr/bin/nodejs
 
-# set java environment variable
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
-ENV PATH=${PATH}:/usr/lib/jvm/java-1.8.0-openjdk/jre/bin
-
 # Install Zowe CLI
-RUN npm install -g @zowe/cli@6.22.0 --ignore-scripts
+RUN npm install -g @zowe/cli@$ZOWE_CLI_VERSION --ignore-scripts
 
 # TODO Installing Keytar and Secure Credentials TODO
 #RUN npm install -g keytar --ignore-scripts && \

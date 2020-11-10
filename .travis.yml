@@ -1,20 +1,16 @@
-language: node_js
+language: minimal
 sudo: required
 dist: trusty
 group: bluezone
-node_js:
-- 12.4.0
 services:
 - docker
 env:
   global:
-  - REPOSITORY="docker.io"
-  - FOLDER_PATH="/ibmcom/"
-  - IMAGE_NAME="wazi-code-codeready"
+  - IMAGE="docker.io/ibmcom/wazi-code-codeready"
 before_install: 
-  - curl https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/wazi/wazi-development-client-1.0.0-20200624.zip | jar xv ibm-rse-api-for-zowe-cli-1.0.0.tgz
-  - mv ibm-rse-api-for-zowe-cli-1.0.0.tgz ibm-rse-api-for-zowe-cli.tgz
-install: docker build -t ${REPOSITORY}${FOLDER_PATH}${IMAGE_NAME}:latest .
+  - curl https://public.dhe.ibm.com/ibmdl/export/pub/software/htp/zos/tools/wazi/wazi-development-client-1.0.x-20200909.zip | jar xv ibm-rse-api-for-zowe-cli-1.0.1.tgz
+  - mv ibm-rse-api-for-zowe-cli-1.0.1.tgz ibm-rse-api-for-zowe-cli.tgz
+install: docker build -t ${IMAGE}:travis .
 script: echo "Success!"
 notifications:
   slack: ibm-systems-z:kiD2FZtJUJtUSp57dwHWwNX1
