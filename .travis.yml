@@ -1,7 +1,9 @@
-language: minimal
+language: node_js
 sudo: required
 dist: trusty
 group: bluezone
+node_js:
+- 12.4.0
 services:
 - docker
 env:
