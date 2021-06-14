@@ -2,7 +2,7 @@
 [![Release](https://img.shields.io/github/release/IBM/wazi-codeready-workspaces-sidecars.svg)](../../releases/latest)
 [![License](https://img.shields.io/github/license/IBM/wazi-codeready-workspaces-sidecars)](LICENSE)
 [![DockerHub](https://img.shields.io/badge/DockerHub-CodeReady-blue?color=3498db)](https://hub.docker.com/repository/docker/ibmcom/wazi-code-codeready)
-[![Knowledge Center](https://img.shields.io/badge/Knowledge%20Center-blue?color=1f618d)](https://www.ibm.com/support/knowledgecenter/SSCH39)
+[![Documentation](https://img.shields.io/badge/Documentation-blue?color=1f618d)](https://ibm.biz/wazi-crw-doc)
     
 ## What's inside?
   
@@ -11,7 +11,7 @@ This sidecar provides Java, Node, Zowe, and other tools necessary to successfull
   
 ## Documentation
   
-Documentation can be found here for [IBM Wazi Developer for Workspaces](https://www.ibm.com/support/knowledgecenter/SSCH39)  
+Documentation can be found here for [IBM Wazi Developer for Workspaces](https://ibm.biz/wazi-crw-doc)  
   
 * The [IBM Wazi Developer for Workspaces](https://github.com/ibm/wazi-codeready-workspaces) repository - provides the devfile and plug-in registries for the Red Hat CodeReady Workspaces.
 * The [IBM Wazi Developer for Workspaces Sidecars](https://github.com/ibm/wazi-codeready-workspaces-sidecars) repository - provides the supporting resources for the devfile and plug-in registries.

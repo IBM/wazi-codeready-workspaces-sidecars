@@ -13,7 +13,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-12
 
 # Build Arguments
-ARG PRODUCT_VERSION=1.2.0
+ARG PRODUCT_VERSION=1.2.5
 
 # Environment and Label Variables
 ENV HOME=/home/wazi \
@@ -23,14 +23,11 @@ ENV HOME=/home/wazi \
     PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces" \
     COMPANY="IBM" \
     VERSION=$PRODUCT_VERSION \
-    ZOWE_CLI_VERSION="6.26.0" \
+    ZOWE_CLI_VERSION="6.30.0" \
     RELEASE="1" \
     SUMMARY="IBM Wazi Developer for Workspaces" \
     DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
-    PRODTAG="wazi-code-codeready" \
-    PRODID="9d41d2d8126f4200b62ba1acc0dffa2e" \
-    PRODMETRIC="VIRTUAL_PROCESSOR_CORE" \
-    PRODCHARGEDCONTAINERS="All"
+    PRODTAG="wazi-code-codeready"
 
 LABEL name="$PRODUCT" \
       vendor="$COMPANY" \
@@ -43,10 +40,7 @@ LABEL name="$PRODUCT" \
       io.openshift.tags="$PRODTAG,$COMPANY" \
       com.redhat.component="$PRODTAG" \
       io.openshift.expose-services="" \
-      productID="$PRODID" \
       productName="$PRODUCT" \
-      productMetric="$PRODMETRIC" \
-      productChargedContainers="$PRODCHARGEDCONTAINERS" \
       productVersion="$VERSION"
 
 USER root
@@ -56,7 +50,7 @@ RUN rm -rf /etc/mysql /etc/my.cnf* && \
     useradd -u 1000 -G wheel,root -d /home/wazi --shell /bin/bash -m wazi && \
     yum remove -y kernel-headers && \
     yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel java-1.8.0-openjdk-headless python36 && \
-    yum update -y && \
+    yum update -y --nobest && \
     yum update -y nodejs npm python3-six pango libnghttp2 && \
     yum clean all && rm -rf /var/cache/yum && \
     mkdir -p /projects && \
