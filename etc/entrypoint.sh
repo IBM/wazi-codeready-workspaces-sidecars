@@ -1,4 +1,5 @@
 #!/bin/sh
+
 #
 # Copyright (c) 2019 Red Hat, Inc.
 # Copyright IBM Corporation 2020
@@ -12,6 +13,7 @@
 #   Red Hat, Inc. - initial API and implementation
 #   IBM Corporation - implementation
 #
+
 set -e
 
 export USER_ID=$(id -u)

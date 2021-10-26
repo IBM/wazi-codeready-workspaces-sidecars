@@ -13,7 +13,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-12
 
 # Build Arguments
-ARG PRODUCT_VERSION=1.2.5
+ARG PRODUCT_VERSION=1.4.0
 
 # Environment and Label Variables
 ENV HOME=/home/wazi \
@@ -23,11 +23,18 @@ ENV HOME=/home/wazi \
     PRODUCT="IBM Wazi Developer for Red Hat CodeReady Workspaces" \
     COMPANY="IBM" \
     VERSION=$PRODUCT_VERSION \
-    ZOWE_CLI_VERSION="6.30.0" \
+    ZOWE_CLI_VERSION="6.33.3" \
     RELEASE="1" \
     SUMMARY="IBM Wazi Developer for Workspaces" \
-    DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Container" \
-    PRODTAG="wazi-code-codeready"
+    DESCRIPTION="IBM Wazi Developer for Red Hat CodeReady Workspaces - Sidecar" \
+    PRODTAG="ibm-wazi-developer-for-workspaces-codeready" \
+    CLOUDPAK_ID="9d41d2d8126f4200b62ba1acc0dffa2e" \
+    CLOUDPAK_METRIC="VIRTUAL_PROCESSOR_CORE" \
+    PRODUCT_NAME="Code" \
+    PRODUCT_ID="0e775d0d3f354a5ca074a6a4398045f3" \
+    PRODUCT_METRIC="AUTHORIZED_USER" \
+    PRODUCT_CHARGED_CONTAINERS="All" \
+    PRODUCT_CLOUDPAK_RATIO="5:1"
 
 LABEL name="$PRODUCT" \
       vendor="$COMPANY" \
@@ -40,8 +47,15 @@ LABEL name="$PRODUCT" \
       io.openshift.tags="$PRODTAG,$COMPANY" \
       com.redhat.component="$PRODTAG" \
       io.openshift.expose-services="" \
-      productName="$PRODUCT" \
-      productVersion="$VERSION"
+      cloudpakName="$PRODUCT" \
+      cloudpakId="$CLOUDPAK_ID" \
+      cloudpakMetric="$CLOUDPAK_METRIC" \
+      productName="$PRODUCT_NAME" \
+      productVersion="$VERSION" \
+      productID="$PRODUCT_ID" \
+      productMetric="$PRODUCT_METRIC" \
+      productChargedContainers="$PRODUCT_CHARGED_CONTAINERS" \
+      productCloudpakRatio="$PRODUCT_CLOUDPAK_RATIO"
 
 USER root
 
@@ -72,7 +86,7 @@ RUN npm install -g @zowe/cli@$ZOWE_CLI_VERSION --ignore-scripts
 
 # Copy RSE API for Zowe CLI Plugin and License
 COPY ibm-rse-api-for-zowe-cli.tgz ${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz
-COPY LICENSE /licenses
+COPY LICENSE /licenses/
 
 # Install RSE API for Zowe CLI Plugin
 RUN npm install -g "${HOME}/rse-rest/ibm-rse-api-for-zowe-cli.tgz" && \
