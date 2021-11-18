@@ -13,7 +13,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-12
 
 # Build Arguments
-ARG PRODUCT_VERSION=1.4.0
+ARG PRODUCT_VERSION=1.4.1
 
 # Environment and Label Variables
 ENV HOME=/home/wazi \

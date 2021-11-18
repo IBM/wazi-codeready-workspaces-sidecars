@@ -6,23 +6,39 @@
     
 ## What's inside?
   
-A Docker image that packages all the enviroment dependencies for a stack and is necessary when a workspace is started.
-This sidecar provides Java, Node, Zowe, and other tools necessary to successfully run a workspace with the Wazi Developer for Workspaces stack. When a user creates and starts a workspace using the Wazi Developer for Workspaces stack, then a Wazi CodeReady Workspaces Sidecar container provides a user runtime for the stack.
+The IBM Wazi Developer for Workspaces sidecar image packages Java, Node, Zowe, and other tools necessary for starting a workspace. When a user creates and starts a workspace using the Wazi Developer for Workspaces stack, the sidecar container provides a user runtime environment.
   
+## IBM Wazi Developer for Workspaces
+
+IBM Wazi Developer for Workspaces is a component shipped with either IBM Wazi Developer for Red Hat CodeReady Workspaces (Wazi Developer for Workspaces) or IBM Developer for z/OS Enterprise Edition (IDzEE).
+
+IBM Wazi Developer for Workspaces provides a modern experience for mainframe software developers working with z/OS applications in the cloud. Powered by the open source projects Zowe and Red Hat CodeReady Workspaces, IBM Wazi Developer for Workspaces offers an easy, streamlined onboarding process to provide mainframe developers the tools they need. Using container technology, IBM Wazi Developer for Workspaces brings the necessary tools to the task at hand.
+
+For more benefits of IBM Wazi Developer for Workspaces, see the [IBM Wazi Developer product page](https://www.ibm.com/products/wazi-developer) or [IDzEE product page](https://www.ibm.com/products/developer-for-zos).
+
+## Details
+
+IBM Wazi Developer for Workspaces provides a custom stack with the all-in-one mainframe development package that enables mainframe developers to:
+
+- Use a modern mainframe editor with rich language support for COBOL, JCL, Assembler (HLASM), and PL/I, which provides language-specific features such as syntax highlighting, outline view, declaration hovering, code completion, snippets, a preview of copybooks, copybook navigation, and basic refactoring using IBM Z Open Editor, a component of IBM Wazi Developer for VS Code
+- Integrate with any flavor of Git source code management (SCM)
+- Perform a user build with IBM Dependency Based Build for any flavor of Git
+- Work with z/OS resources such as MVS, UNIX files, and JES jobs
+- Connect to the Z host with z/OSMF or IBM Remote System Explorer (RSE) API, using Zowe Explorer plus IBM Z Open Editor for a graphical user interface and Zowe CLI plus the RSE API plug-in for Zowe CLI for command line access
+- Debug COBOL and PL/I applications using IBM Z Open Debug
+- Use a mainframe development package with a custom plug-in and devfile registry support from the [IBM Wazi Developer stack](https://github.com/IBM/wazi-codeready-workspaces)
+
 ## Documentation
+
+For details of the features for IBM Wazi Developer for Workspaces, see its [official documentation](https://ibm.biz/wazi-crw-doc).
+
+| Repository | Description |
+| --- | --- |
+| [IBM Wazi Developer for Workspaces](https://github.com/ibm/wazi-codeready-workspaces) |  The devfile and plug-in registries |
+| [IBM Wazi Developer for Workspaces Sidecars](https://github.com/ibm/wazi-codeready-workspaces-sidecars) | Supporting resources for the Wazi Developer plug-ins |
+| [IBM Wazi Developer for Workspaces Operator](https://github.com/ibm/wazi-codeready-workspaces-operator) | Deployment using the Operator Lifecycle Manager |
+
+## Feedback
   
-Documentation can be found here for [IBM Wazi Developer for Workspaces](https://ibm.biz/wazi-crw-doc)  
-  
-* The [IBM Wazi Developer for Workspaces](https://github.com/ibm/wazi-codeready-workspaces) repository - provides the devfile and plug-in registries for the Red Hat CodeReady Workspaces.
-* The [IBM Wazi Developer for Workspaces Sidecars](https://github.com/ibm/wazi-codeready-workspaces-sidecars) repository - provides the supporting resources for the devfile and plug-in registries.
-* The [IBM Wazi Developer for Workspaces Operator](https://github.com/ibm/wazi-codeready-workspaces-operator) repository - provides the Operator Lifecycle Manager for deployment.
-  
-## Feadback
-  
-We would love to hear feedback from you about IBM Wazi Developer for Red Hat CodeReady Workspaces.  
+We would love to hear feedback from you about IBM Wazi Developer for Workspaces.  
 File an issue or provide feedback here: [IBM Wazi Developer for Workspaces Issues](https://github.com/IBM/wazi-codeready-workspaces/issues)
-  
-## What is IBM Wazi Developer for Workspaces?
-IBM Wazi Developer for Workspaces is built on the Red Hat CodeReady Workspaces project. The core functionality for Red Hat CodeReady Workspaces is provided by an open-source project called Eclipse Che. IBM Wazi Developer for Workspaces uses Kubernetes and containers to provide your team with a consistent, secure, and zero-configuration development environment that interacts with your IBM Z platform.  
-  
-IBM Wazi Developer for Workspaces provides a modern experience for mainframe software developers working with z/OS applications in the cloud. Powered by the open-source projects Zowe and Red Hat CodeReady Workspaces, IBM Wazi Developer for Workspaces offers an easy, streamlined on-boarding process to provide mainframe developers the tools they need. Using container technology and stacks, IBM Wazi Developer for Workspaces brings the necessary technology to the task at hand.
